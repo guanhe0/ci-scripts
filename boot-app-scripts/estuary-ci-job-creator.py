@@ -123,6 +123,8 @@ def setup_job_dir(directory):
     debug_print("jobs directory ====",directory)
     if not os.path.exists(directory):
         os.makedirs(directory)
+    else:
+        print 'jobs directory exist'
     #else:
     #    shutil.rmtree(directory)
     #    os.makedirs(directory)
