@@ -121,6 +121,7 @@ def debug_print(str,value,permmit):
 
 def setup_job_dir(directory):
     print 'Setting up JSON output directory at: jobs/'
+    debug_print("jobs directory = %s" % directory)
     if not os.path.exists(directory):
         os.makedirs(directory)
     #else:
@@ -383,7 +384,7 @@ def walk_url(url, distro_url, plans=None, arch=None, targets=None,
     files = parse_re.findall(html)
     dirs = []
     for name in files:
-        debug_print("name",name,True)
+     #   debug_print("name",name,True)
         if name.endswith('/'):
             dirs += [name]
         if arch is None:
