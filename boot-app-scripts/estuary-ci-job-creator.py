@@ -382,7 +382,7 @@ def walk_url(url, distro_url, plans=None, arch=None, targets=None,
     files = parse_re.findall(html)
     dirs = []
     for name in files:
-        debug_print("name",name)
+        debug_print("name",name,True)
         if name.endswith('/'):
             dirs += [name]
         if arch is None:
