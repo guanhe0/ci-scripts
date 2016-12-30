@@ -114,9 +114,8 @@ device_map = {'hip04-d01.dtb': [d01],
 
 parse_re = re.compile('href="([^./"?][^"?]*)"')
 
-def debug_print(str,value,permmit):
-    if permmit:
-        print '##############  %s===%s' % (str,value)
+def debug_print(str,value):
+    print '##############  %s===%s' % (str,value)
 
 
 def setup_job_dir(directory):
