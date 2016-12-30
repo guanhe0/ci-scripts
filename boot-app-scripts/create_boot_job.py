@@ -48,6 +48,7 @@ def create_jobs(connection, server, bundle_stream=None):
 
 def load_jobs():
     top = os.getcwd()
+    print '#########top=%s' % top
     for root, dirnames, filenames in os.walk(top):
         for filename in fnmatch.filter(filenames, '*.json'):
             print "filename ===== %s " % filename
@@ -69,10 +70,12 @@ def gather_devices_types_map(connection):
 
 def main(args):
     config = configuration.get_config(args)
-
+    print 'create job main============='
     url = utils.validate_input(config.get("username"), config.get("token"), config.get("server"))
     connection = utils.connect(url)
+    print 'before load_jobs'
     load_jobs()
+    print 'after load_jobs'
     start_time = time.time()
 
     bundle_stream = None
