@@ -150,7 +150,7 @@ def get_nfs_url(distro_url, device_type):
 # add by wuyanjun 2016-06-25
 def get_pubkey():
     key_loc = os.path.join(os.path.expandvars('$HOME'), '.ssh', 'id_rsa.pub')
-   
+
     if os.path.exists(key_loc):
         pubkey = open(key_loc, 'r').read().rstrip()
     else:
@@ -251,7 +251,7 @@ def create_jobs(base_url, kernel, plans, platform_list, targets, priority,
                         total_templates = list(set(single_templates).union(set(both_templates)))
                     else:
                         # may be need to improve here because of all test cases will be executed
-                        total_templates = [x for x in device_templates] 
+                        total_templates = [x for x in device_templates]
                     # may need to change
                     get_nfs_url(distro_url, device_type)
                     for template in total_templates:
@@ -269,7 +269,7 @@ def create_jobs(base_url, kernel, plans, platform_list, targets, priority,
                                         tmp = line.replace('{dtb_url}', platform)
                                         tmp = tmp.replace('{kernel_url}', kernel)
                                         # add by wuyanjun
-                                        # if the jobs are not the boot jobs of LAVA, try to use the 
+                                        # if the jobs are not the boot jobs of LAVA, try to use the
                                         # dummy_ssh as the board device, or use the ${board_type} itself.
                                         if 'boot' not in plan and 'BOOT' not in plan:
                                             tmp = tmp.replace('{device_type}', 'dummy_ssh'+'_'+device_type)
@@ -443,7 +443,7 @@ def main(args):
     config = configuration.get_config(args)
 
     setup_job_dir(os.getcwd() + '/jobs')
-    print 'Scanning %s for kernel information...' % config.get("url")
+    print 'Scanning %s for kernel information...@@@@@@@@@@guanhe' % config.get("url")
     distro = config.get("distro")
     if distro is None:
         distro = "Ubuntu"
