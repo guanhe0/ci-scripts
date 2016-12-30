@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#                      
-#    E-mail    :    wu.wu@hisilicon.com 
+#
+#    E-mail    :    wu.wu@hisilicon.com
 #    Data      :    2016-01-20 15:26:46
 #    Desc      :
 
@@ -23,9 +23,9 @@ from lib import configuration
 job_map = {}
 
 def create_jobs(connection, server, bundle_stream=None):
-    
+
     types_devices_map = gather_devices_types_map(connection)
-    
+
     for job in job_map:
         with open(job, 'rb') as stream:
             job_data = stream.read()
@@ -50,6 +50,7 @@ def load_jobs():
     top = os.getcwd()
     for root, dirnames, filenames in os.walk(top):
         for filename in fnmatch.filter(filenames, '*.json'):
+            print "filename ===== %s " % filename
             job_map[os.path.join(root, filename)] = None
 
 
