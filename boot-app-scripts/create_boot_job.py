@@ -50,6 +50,7 @@ def load_jobs():
     top = os.getcwd()
     print '#########top=%s' % top
     for root, dirnames, filenames in os.walk(top):
+        print 'filenames  == %s' % filenames
         for filename in fnmatch.filter(filenames, '*.json'):
             print "filename ===== %s " % filename
             job_map[os.path.join(root, filename)] = None
