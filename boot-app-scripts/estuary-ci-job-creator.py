@@ -386,6 +386,7 @@ def walk_url(url, distro_url, plans=None, arch=None, targets=None,
     dirs = []
     for name in files:
      #   debug_print("name",name,True)
+        print 'walk_url name = %s' % name
         if name.endswith('/'):
             dirs += [name]
         if arch is None:
@@ -426,6 +427,7 @@ def walk_url(url, distro_url, plans=None, arch=None, targets=None,
         if 'distro' in name:
             distro_url = url + name
     if kernel is not None and base_url is not None:
+        print 'kernel == %s base_url = %s platform_list = %s' % (kernel,base_url,platform_list)
         if platform_list:
             print 'Found artifacts at: %s' % base_url
             create_jobs(base_url, kernel, plans, platform_list, targets,
