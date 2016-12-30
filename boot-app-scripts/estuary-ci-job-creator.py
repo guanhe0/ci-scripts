@@ -120,7 +120,7 @@ def debug_print(str,value):
 
 def setup_job_dir(directory):
     print 'Setting up JSON output directory at: jobs/'
-    debug_print("jobs directory = %s" % directory)
+    debug_print("jobs directory ====",directory)
     if not os.path.exists(directory):
         os.makedirs(directory)
     #else:
