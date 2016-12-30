@@ -392,18 +392,23 @@ def walk_url(url, distro_url, plans=None, arch=None, targets=None,
         if arch is None:
             print 'arch is None name ========= %s' % name
             if 'bzImage' in name and 'x86' in url:
+                print 'bzImage&&&&&&&&&&&'
                 kernel = url + name
                 base_url = url
                 platform_list.append(url + 'x86')
                 platform_list.append(url + 'x86-kvm')
             if 'zImage' in name and 'arm' in url:
+                print 'zImage &&&&&&&&&&&&&'
                 kernel = url + name
                 base_url = url
             if 'Image' in name and 'arm64' in url:
+                print 'Image #############'
                 kernel = url + name
                 base_url = url
             if name.endswith('.dtb') and name in device_map:
+                print 'dtb==========='
                 if (base_url and base_url in url) or (base_url is None):
+                    print 'base_url =========='
                     platform_list.append(url + name)
         elif arch == 'x86':
             if 'bzImage' in name and 'x86' in url:
