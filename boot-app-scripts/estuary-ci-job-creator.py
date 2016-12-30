@@ -368,7 +368,7 @@ def walk_url(url, distro_url, plans=None, arch=None, targets=None,
     global kernel
     global platform_list
     global legacy_platform_list
-
+    print 'walk_url gggggggggggggggooo'
     try:
         html = urllib2.urlopen(url, timeout=30).read()
     except IOError, e:
@@ -445,11 +445,15 @@ def main(args):
     setup_job_dir(os.getcwd() + '/jobs')
     print 'Scanning %s for kernel information...@@@@@@@@@@guanhe' % config.get("url")
     distro = config.get("distro")
+    print 'main distro ========= %s' % distro
     if distro is None:
         distro = "Ubuntu"
+    print 'main get distro ========= %s' % distro
+
     test_kind = config.get("testClassify")
     if test_kind is None:
         test_kind = "BOTH"
+    print 'get test_kind ====== %s' % test_kind
     walk_url(config.get("url"), config.get("url"), config.get("plans"),
             config.get("arch"), config.get("targets"), config.get("priority"),
             distro, config.get("SasFlag"))
