@@ -421,7 +421,7 @@ def walk_url(url, distro_url, plans=None, arch=None, targets=None,
             if 'Image' in name and 'arm64' in url:
                 kernel = url + name
                 base_url = url
-				print 'name ========= %s ' % name
+                print 'name ========= %s ' % name
             if name.endswith('.dtb') and name in device_map:
                 if base_url and base_url in url:
                     platform_list.append(url + name)
