@@ -390,7 +390,7 @@ def walk_url(url, distro_url, plans=None, arch=None, targets=None,
         if name.endswith('/'):
             dirs += [name]
         if arch is None:
-			print 'arch is None name ========= %s' % name
+            print 'arch is None name ========= %s' % name
             if 'bzImage' in name and 'x86' in url:
                 kernel = url + name
                 base_url = url
