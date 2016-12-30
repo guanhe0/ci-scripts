@@ -386,10 +386,11 @@ def walk_url(url, distro_url, plans=None, arch=None, targets=None,
     dirs = []
     for name in files:
      #   debug_print("name",name,True)
-        print 'arch =11235 %s' % arch
+        print 'arch ======= %s' % arch
         if name.endswith('/'):
             dirs += [name]
         if arch is None:
+			print 'arch is None name ========= %s' % name
             if 'bzImage' in name and 'x86' in url:
                 kernel = url + name
                 base_url = url
