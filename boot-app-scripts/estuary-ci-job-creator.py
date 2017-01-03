@@ -377,7 +377,6 @@ def walk_url(url, distro_url, plans=None, arch=None, targets=None,
     global platform_list
     global legacy_platform_list
     try:
-        print '@@@@@@@@@@@@@@ url == %s' % url
         html = urllib2.urlopen(url, timeout=30).read()
     except IOError, e:
         print 'error fetching %s: %s' % (url, e)
@@ -388,35 +387,27 @@ def walk_url(url, distro_url, plans=None, arch=None, targets=None,
     dirs = []
     for name in files:
      #   debug_print("name",name,True)
-        print 'arch ======= %s' % arch
-        print 'name11235 === %s ' % name
         if name.endswith('/'):
             dirs += [name]
         if arch is None:
-            print 'arch is None name ========= %s' % name
             if 'bzImage' in name and 'x86' in url:
-                print 'bzImage&&&&&&&&&&&'
                 kernel = url + name
                 base_url = url
                 platform_list.append(url + 'x86')
                 platform_list.append(url + 'x86-kvm')
             if 'zImage' in name and 'arm' in url:
-                print 'zImage &&&&&&&&&&&&&'
                 kernel = url + name
                 base_url = url
             if 'Image' in name and 'arm64' in url:
-                print 'Image #############'
                 kernel = url + name
                 base_url = url
             if name.endswith('.dtb') and name in device_map:
-                print 'dtb==========='
                 if (base_url and base_url in url) or (base_url is None):
-                    print 'base_url =========='
                     platform_list.append(url + name)
-            elif 'd03-arm64' in name  and name in device_map:
-                print 'd03-------------------------arm64'
+            elif 'd03-arm64' in url  and 'd03-arm64' in device_map:
+                print '##########11235'
                 if base_url and base_url in url:
-                    print '&&&&&&&&&11235'
+                    print '@@@@@112358'
                     platform_list.append(url + 'd03-arm64')
         elif arch == 'x86':
             if 'bzImage' in name and 'x86' in url:
