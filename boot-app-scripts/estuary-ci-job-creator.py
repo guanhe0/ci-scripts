@@ -411,6 +411,9 @@ def walk_url(url, distro_url, plans=None, arch=None, targets=None,
                 if (base_url and base_url in url) or (base_url is None):
                     print 'base_url =========='
                     platform_list.append(url + name)
+            elif strspn(name,'d03-arm64') and name in device_map:
+                if base_url and base_url in url:
+                    platform_list.append(url + 'd03-arm64')
         elif arch == 'x86':
             if 'bzImage' in name and 'x86' in url:
                 kernel = url + name
@@ -432,9 +435,6 @@ def walk_url(url, distro_url, plans=None, arch=None, targets=None,
             if name.endswith('.dtb') and name in device_map:
                 if base_url and base_url in url:
                     platform_list.append(url + name)
-            elif strspn(name,'d03-arm64') and name in device_map:
-                if base_url and base_url in url:
-                    platform_list.append(url + 'd03-arm64')
         if 'distro' in name:
             distro_url = url + name
     if kernel is not None and base_url is not None:
