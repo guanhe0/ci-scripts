@@ -405,9 +405,9 @@ def walk_url(url, distro_url, plans=None, arch=None, targets=None,
             if name.endswith('.dtb') and name in device_map:
                 if (base_url and base_url in url) or (base_url is None):
                     platform_list.append(url + name)
-            elif 'UEFI_D03.fd' in url  and 'UEFI_D03.fd' in device_map:
-                print '##########11235'
-                if base_url and base_url in url:
+            elif 'd03-arm64' in url  and 'd03-arm64' in device_map:
+                print '### 111 ###'
+                if url.endswith('binary/') and base_url and base_url in url:
                     print '@@@@@112358'
                     platform_list.append(url + 'UEFI_D03.fd')
         elif arch == 'x86':
