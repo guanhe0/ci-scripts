@@ -411,7 +411,7 @@ def walk_url(url, distro_url, plans=None, arch=None, targets=None,
                 if (base_url and base_url in url) or (base_url is None):
                     print 'base_url =========='
                     platform_list.append(url + name)
-            elif strspn(name,'d03-arm64') and name in device_map:
+            elif 'd03-arm64' in name  and name in device_map:
                 if base_url and base_url in url:
                     platform_list.append(url + 'd03-arm64')
         elif arch == 'x86':
