@@ -388,10 +388,11 @@ def walk_url(url, distro_url, plans=None, arch=None, targets=None,
     print '&& 11 && url ===== %s' % url
     for name in files:
      #   debug_print("name",name,True)
+        print '&& 11 && name ===== %s' % name
         if name.endswith('/'):
             dirs += [name]
         if arch is None:
-            print 'arch == ** == %s name == %s ' % (arch,name)
+            print 'arch == +++++++ == %s' % arch
             if 'bzImage' in name and 'x86' in url:
                 kernel = url + name
                 base_url = url
@@ -408,7 +409,7 @@ def walk_url(url, distro_url, plans=None, arch=None, targets=None,
                     platform_list.append(url + name)
             elif 'd03-arm64' in url  and 'd03-arm64' in device_map:
 
-                print '### 111 ###'
+                print 'url == ++++++ == %s' % url
                 if url.endswith('binary/') and base_url and base_url in url:
                     print '@@@@@112358'
                     platform_list.append(url + 'UEFI_D03.fd')
