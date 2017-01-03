@@ -105,6 +105,7 @@ dummy_ssh = {'device_type': 'dummy_ssh',
 device_map = {'hip04-d01.dtb': [d01],
               'hip05-d02.dtb': [d02],
               'hip06-d03.dtb': [d03],
+              'd03-arm64': [d03],
               'hisi-x5hd2-dkb.dtb': [hisi_x5hd2_dkb],
               #'qemu-arm-legacy': [qemu_arm],
               #'qemu-aarch64-legacy': [qemu_aarch64],
@@ -431,6 +432,9 @@ def walk_url(url, distro_url, plans=None, arch=None, targets=None,
             if name.endswith('.dtb') and name in device_map:
                 if base_url and base_url in url:
                     platform_list.append(url + name)
+            elif strspn(name,'d03-arm64') and name in device_map:
+                if base_url and base_url in url:
+                    platform_list.append(url + 'd03-arm64')
         if 'distro' in name:
             distro_url = url + name
     if kernel is not None and base_url is not None:
