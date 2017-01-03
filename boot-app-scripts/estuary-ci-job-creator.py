@@ -377,6 +377,7 @@ def walk_url(url, distro_url, plans=None, arch=None, targets=None,
     global platform_list
     global legacy_platform_list
     try:
+        print '@@@@@@@@@@@@@@ url == %s' % url
         html = urllib2.urlopen(url, timeout=30).read()
     except IOError, e:
         print 'error fetching %s: %s' % (url, e)
