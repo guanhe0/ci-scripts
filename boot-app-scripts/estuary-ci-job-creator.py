@@ -105,7 +105,7 @@ dummy_ssh = {'device_type': 'dummy_ssh',
 device_map = {'hip04-d01.dtb': [d01],
               'hip05-d02.dtb': [d02],
               'hip06-d03.dtb': [d03],
-              'd03-arm64': [d03],
+              'UEFI_D03.fd': [d03],
               'hisi-x5hd2-dkb.dtb': [hisi_x5hd2_dkb],
               #'qemu-arm-legacy': [qemu_arm],
               #'qemu-aarch64-legacy': [qemu_aarch64],
@@ -188,9 +188,9 @@ def create_jobs(base_url, kernel, plans, platform_list, targets, priority,
 
     pubkey = get_pubkey()
     for platform in platform_list:
-        platform_name = platform.split('/')[-1]
-        for device in device_map[platform_name]:
-            device_type = device['device_type']
+        platform_name = platform.split('/')[-1] #d03-arm64
+        for device in device_map[platform_name]: #d03
+            device_type = device['device_type'] #
             device_templates = device['templates']
             lpae = device['lpae']
             fastboot = device['fastboot']
@@ -404,11 +404,11 @@ def walk_url(url, distro_url, plans=None, arch=None, targets=None,
             if name.endswith('.dtb') and name in device_map:
                 if (base_url and base_url in url) or (base_url is None):
                     platform_list.append(url + name)
-            elif 'd03-arm64' in url  and 'd03-arm64' in device_map:
+            elif 'UEFI_D03.fd' in url  and 'UEFI_D03.fd' in device_map:
                 print '##########11235'
                 if base_url and base_url in url:
                     print '@@@@@112358'
-                    platform_list.append(url + 'd03-arm64')
+                    platform_list.append(url + 'UEFI_D03.fd')
         elif arch == 'x86':
             if 'bzImage' in name and 'x86' in url:
                 kernel = url + name
