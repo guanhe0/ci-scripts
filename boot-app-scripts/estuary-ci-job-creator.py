@@ -388,7 +388,7 @@ def walk_url(url, distro_url, plans=None, arch=None, targets=None,
     for name in files:
      #   debug_print("name",name,True)
         print 'arch ======= %s' % arch
-        print 'name === %s ' % name
+        print 'name11235 === %s ' % name
         if name.endswith('/'):
             dirs += [name]
         if arch is None:
