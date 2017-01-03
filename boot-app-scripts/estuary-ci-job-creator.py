@@ -385,7 +385,7 @@ def walk_url(url, distro_url, plans=None, arch=None, targets=None,
         url += '/'
     files = parse_re.findall(html)
     dirs = []
-	print '&& 11 && url ===== %s' % url
+    print '&& 11 && url ===== %s' % url
     for name in files:
      #   debug_print("name",name,True)
         if name.endswith('/'):
