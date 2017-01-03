@@ -388,6 +388,7 @@ def walk_url(url, distro_url, plans=None, arch=None, targets=None,
     for name in files:
      #   debug_print("name",name,True)
         print 'arch ======= %s' % arch
+        print 'name === %s ' % name
         if name.endswith('/'):
             dirs += [name]
         if arch is None:
@@ -412,7 +413,9 @@ def walk_url(url, distro_url, plans=None, arch=None, targets=None,
                     print 'base_url =========='
                     platform_list.append(url + name)
             elif 'd03-arm64' in name  and name in device_map:
+                print 'd03-------------------------arm64'
                 if base_url and base_url in url:
+                    print '&&&&&&&&&11235'
                     platform_list.append(url + 'd03-arm64')
         elif arch == 'x86':
             if 'bzImage' in name and 'x86' in url:
